@@ -12,14 +12,14 @@ import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class RestTemplateConfiguration {
+public class RestTemplateConfigurationOpenProject {
     @Value("${differentdoors.openproject.user}")
     private String user;
 
     @Value("${differentdoors.openproject.apikey}")
     private String apikey;
 
-    @Bean
+    @Bean(name = "OpenProject")
     public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
         HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
@@ -31,7 +31,7 @@ public class RestTemplateConfiguration {
                 .build();
         requestFactory.setHttpClient(httpClient);
         restTemplate.setRequestFactory(requestFactory);
-        restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor(user, apikey));
+        restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("apikey", "bed7462011a419a9648aec81425985dc88f0381a9f3d02d222604cf0c5a34531"));
 
         return restTemplate;
     }

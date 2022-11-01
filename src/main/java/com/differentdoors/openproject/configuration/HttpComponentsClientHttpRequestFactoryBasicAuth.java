@@ -7,16 +7,12 @@ import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicAuthCache;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 import java.net.URI;
 
-@Configuration
-public class HttpComponentsClientHttpRequestFactoryBasicAuth
-        extends HttpComponentsClientHttpRequestFactory {
-
+public class HttpComponentsClientHttpRequestFactoryBasicAuth extends HttpComponentsClientHttpRequestFactory {
     HttpHost host;
 
     public HttpComponentsClientHttpRequestFactoryBasicAuth(HttpHost host) {
@@ -30,10 +26,8 @@ public class HttpComponentsClientHttpRequestFactoryBasicAuth
 
     private HttpContext createHttpContext() {
         AuthCache authCache = new BasicAuthCache();
-
         BasicScheme basicAuth = new BasicScheme();
         authCache.put(host, basicAuth);
-
         BasicHttpContext localcontext = new BasicHttpContext();
         localcontext.setAttribute(HttpClientContext.AUTH_CACHE, authCache);
         return localcontext;
