@@ -2,14 +2,20 @@ package com.differentdoors.openproject.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OResults {
+public class OResults<T> {
     private int total;
     private int count;
     private int pageSize;
     private int offset;
+    private List<Groups> groups;
+    @JsonProperty("_embedded")
+    private Embedded<T> embedded;
 
     public int getTotal() {
         return total;
@@ -41,5 +47,21 @@ public class OResults {
 
     public void setOffset(int offset) {
         this.offset = offset;
+    }
+
+    public List<Groups> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
+    }
+
+    public Embedded<T> getEmbedded() {
+        return embedded;
+    }
+
+    public void setEmbedded(Embedded<T> embedded) {
+        this.embedded = embedded;
     }
 }
