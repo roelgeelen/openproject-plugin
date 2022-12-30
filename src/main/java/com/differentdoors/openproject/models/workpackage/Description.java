@@ -1,4 +1,4 @@
-package com.differentdoors.openproject.models;
+package com.differentdoors.openproject.models.workpackage;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -13,7 +13,6 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Groups {
-    private String value;
-    private String count;
+public class Description {
+    private String raw;
 }
