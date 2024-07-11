@@ -20,6 +20,7 @@ public class Links {
     private Href type;
     private Href status;
     private Href parent;
+    private Href assignee;
     private List<Href> children;
 
     @JsonProperty("customField2")
@@ -40,4 +41,8 @@ public class Links {
     private List<Href> duwframe;
     @JsonProperty("customField78")
     private Href typeMotor;
+    @JsonProperty("customField92")
+    private Href vingerknel;
+    @JsonProperty("customField97")
+    private Href resthout;
 }

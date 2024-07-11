@@ -19,8 +19,8 @@ public class RestTemplateConfigurationOpenProject {
     @Bean(name = "OpenProject")
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
         return restTemplateBuilder
-                .setConnectTimeout(Duration.ofSeconds(7))
-                .setReadTimeout(Duration.ofSeconds(7))
+                .setConnectTimeout(Duration.ofSeconds(15))
+                .setReadTimeout(Duration.ofSeconds(15))
                 .basicAuthentication(user, apikey).build();
     }
 }

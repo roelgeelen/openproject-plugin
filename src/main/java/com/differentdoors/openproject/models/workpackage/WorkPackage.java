@@ -94,6 +94,20 @@ public class WorkPackage {
     private String deurGewichtIncl;
     @JsonProperty("customField82")
     private Description overigeOpmerkingen;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonProperty("customField85")
+    private LocalDate dueProduction;
+    @JsonProperty("customField86")
+    private Boolean gewichtIngevuld;
+    @JsonProperty("customField87")
+    private Boolean model3D;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonProperty("customField88")
+    private LocalDate dueDateEngineering;
+    @JsonProperty("customField96")
+    private Boolean checklist;
 
     @JsonProperty("_links")
     private Links links;
